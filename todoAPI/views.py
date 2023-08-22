@@ -4,8 +4,21 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from .models import Todo
 from .serializers import TodoSerializer
+from django.http import HttpResponse
 # Create your views here.
 
+
+def home(request):
+
+    html = f'''
+    <html>
+        <body>
+            <h1>Hello from Vercel!</h1>
+            <p>The current time is not needed.</p>
+        </body>
+    </html>
+    '''
+    return HttpResponse(html)
 
 @api_view(["GET", "POST"])
 def todo_list(request):
